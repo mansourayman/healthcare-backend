@@ -11,6 +11,10 @@ def encryptPassword(password: str):
     return pwx.hash(password)
 
 
-def verifyPassword(plain_password: str, hashed_password: str):
+def checkPassword(plain_password: str, hashed_password: str):
     plain_password = plain_password[:72]
     return pwx.verify(plain_password, hashed_password)
+
+
+def verifyPassword(plain_password: str, hashed_password: str):
+    return checkPassword(plain_password, hashed_password)
