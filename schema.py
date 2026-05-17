@@ -1,5 +1,5 @@
 
-from pydantic import BaseModel, EmailStr
+from pydantic import BaseModel, EmailStr, ConfigDict
 from typing import Optional
 from datetime import datetime, date
 
@@ -19,8 +19,7 @@ class UserRead(UserBase):
     created_at: Optional[datetime] = None
     last_login: Optional[datetime] = None
 
-    class Config:
-        orm_mode = True
+    model_config = ConfigDict(from_attributes=True)
 
 
 
@@ -48,8 +47,7 @@ class DeviceRead(DeviceBase):
     created_at: Optional[datetime] = None
     device_token: Optional[str] = None   # new - token visible when returned
 
-    class Config:
-        orm_mode = True
+    model_config = ConfigDict(from_attributes=True)
 
 
 
@@ -73,8 +71,7 @@ class HeartRateScanRead(HeartRateScanBase):
     device_id: Optional[int] = None
     timestamp: Optional[datetime] = None
 
-    class Config:
-        orm_mode = True
+    model_config = ConfigDict(from_attributes=True)
 
 
 class UserActivityBase(BaseModel):
@@ -92,8 +89,7 @@ class UserActivityRead(UserActivityBase):
     id: int
     user_id: int
 
-    class Config:
-        orm_mode = True
+    model_config = ConfigDict(from_attributes=True)
 
 
 
@@ -112,8 +108,7 @@ class AlertRead(AlertBase):
     scan_id: Optional[int] = None
     timestamp: Optional[datetime] = None
 
-    class Config:
-        orm_mode = True
+    model_config = ConfigDict(from_attributes=True)
 class DeviceDataCreate(BaseModel):
     device_id: int
     heart_rate: int

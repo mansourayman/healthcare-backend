@@ -1,9 +1,10 @@
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 from typing import List, Optional
-from .. import schema, models
-from ..database import sessionLocal
-from .auth import get_current_user
+import schema
+import models
+from database import sessionLocal
+from routers.auth import get_current_user
 from datetime import datetime
 import logging
 logger = logging.getLogger("uvicorn.error")

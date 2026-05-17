@@ -4,16 +4,17 @@ from typing import Optional, List
 from datetime import datetime
 from uuid import uuid4
 
-from .. import models, schema
-from ..database import sessionLocal
-from .auth import get_current_user
+import models
+import schema
+from database import sessionLocal
+from routers.auth import get_current_user
 
 from jose import JWTError, jwt
-from ..security.jwt import SECRET_KEY, ALGORITHM
+from security.jwt import SECRET_KEY, ALGORITHM
 
 # ===== AI IMPORTS =====
-from ..ai.activity_model import ActivityModel
-from ..ai.health_risk import assess_health_risk
+from ai.activity_model import ActivityModel
+from ai.health_risk import assess_health_risk
 
 # load AI model once
 activity_ai = ActivityModel()

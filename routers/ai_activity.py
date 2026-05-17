@@ -1,8 +1,8 @@
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
-from ..database import sessionLocal
-from .. import models
-from .auth import get_current_user
+from database import sessionLocal
+import models
+from routers.auth import get_current_user
 
 router = APIRouter(prefix="/ai/activity", tags=["AI Activity"])
 

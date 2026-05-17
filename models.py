@@ -4,13 +4,13 @@ from sqlalchemy import (
     Column, Float, Integer, String, DateTime, Date, ForeignKey, Enum, Boolean, Text
 )
 from sqlalchemy.sql import func
-from sqlalchemy.orm import relationship, declarative_base
+from sqlalchemy.orm import relationship
 import enum
 
 
 
 
-Base = declarative_base()
+from database import Base
 
 
 class StatusEnum(str, enum.Enum):

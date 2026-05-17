@@ -1,13 +1,14 @@
 # backend/routers/auth.py
 from fastapi import APIRouter, Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
-from .. import schema, models 
-from ..security.jwt import (
+import schema
+import models 
+from security.jwt import (
     ACCESS_TOKEN_EXPIRE_MINUTES, ALGORITHM, SECRET_KEY, create_access_token
 )
-from ..security.passwordFunc import encryptPassword, checkPassword
+from security.passwordFunc import encryptPassword, checkPassword
 from datetime import datetime, timedelta
-from ..database import sessionLocal
+from database import sessionLocal
 from sqlalchemy.orm import Session
 from jose import JWTError, jwt
 
